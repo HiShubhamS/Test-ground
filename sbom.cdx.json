@@ -1,0 +1,21 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:0fbb4f77-55d6-4f2d-8e72-9c01b31c8c77",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "bfsi-digital-banking-service",
+      "version": "1.0.0"
+    }
+  },
+  "components": [
+    {"type":"library","name":"axios","version":"0.21.1","purl":"pkg:npm/axios@0.21.1"},
+    {"type":"library","name":"express","version":"4.17.1","purl":"pkg:npm/express@4.17.1"},
+    {"type":"library","name":"jsonwebtoken","version":"8.5.1","purl":"pkg:npm/jsonwebtoken@8.5.1"},
+    {"type":"library","name":"lodash","version":"4.17.20","purl":"pkg:npm/lodash@4.17.20"},
+    {"type":"library","name":"moment","version":"2.29.1","purl":"pkg:npm/moment@2.29.1"},
+    {"type":"library","name":"sqlite3","version":"5.0.0","purl":"pkg:npm/sqlite3@5.0.0"}
+  ]
+}
