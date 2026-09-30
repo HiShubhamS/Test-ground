@@ -1,0 +1,39 @@
+name: BFSI ASPM Demo CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build-and-inventory:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # intentionally excessive for CI/CD posture demonstration
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+
+      - name: Install application dependencies
+        run: npm install
+
+      - name: Build / test
+        run: npm test --if-present
+
+      # SBOM step is illustrative. In the live demo, use the ASPM-native pipeline integration.
+      - name: Generate CycloneDX SBOM with Syft
+        uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: cyclonedx-json
+          output-file: sbom-live.cdx.json
+
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: software-bill-of-materials
+          path: sbom-live.cdx.json

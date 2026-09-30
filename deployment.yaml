@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bfsi-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bfsi-demo
+  template:
+    metadata:
+      labels:
+        app: bfsi-demo
+    spec:
+      containers:
+      - name: app
+        image: example.invalid/bfsi-demo:latest
+        securityContext:
+          privileged: true
+          runAsUser: 0
+        ports:
+        - containerPort: 3000
+        env:
+        - name: ADMIN_PASSWORD
+          value: "BankDemo@123"

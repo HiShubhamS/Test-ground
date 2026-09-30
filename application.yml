@@ -1,0 +1,8 @@
+server:
+  port: 3000
+security:
+  tlsVerification: false
+  allowDebugEndpoints: true
+paymentGateway:
+  baseUrl: "https://payments.example.invalid"
+  apiKey: "demo-payment-api-key-1234567890"
